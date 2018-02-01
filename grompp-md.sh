@@ -1,8 +1,10 @@
 #!/bin/bash
 
-# frames='Place your frames here'
-
-for f in $frames
+for num in {0..300}
 do
-    gmx grompp -f md_umbrella.mdp -c npt${f}.gro -p init.top -n index.ndx -o umbrella${f}.tpr
+    if [ -e npt${num}.gro ];
+    then
+        gmx grompp -f md_umbrella.mdp -c npt${num}.gro -p init.top -n index.ndx -o umbrella${num}.tpr
+    fi
 done
+
