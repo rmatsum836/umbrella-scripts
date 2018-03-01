@@ -1,6 +1,9 @@
 import os
 import numpy as np
 
+# Python 3 version of Justin Lemkul's perl script to iterate through
+# gmx distance
+
 for config in range(0,211):
     print("Processing configuration {0}".format(config))
     os.system("gmx distance -s pull.tpr -f conf{0}.gro -n index.ndx -oall dist{0}.xvg -select \'com of resname \"[selection1]\" plus com of resname \"[selection2]\"' &>/dev/null".format(config))
